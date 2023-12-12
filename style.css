@@ -1,0 +1,145 @@
+
+:root {
+  /* Colors */
+  --clr-dark-cyan: #3c8067;
+  --clr-dark-cyan-hover: #2A5948;
+  --clr-cream: #f2ebe3;
+
+  --clr-dark-blue: #1c232b;
+  --clr-grayish-blue: #6c7289;
+  --clr-white: #ffffff;
+  
+  /* font weight */
+  --fw-regular: 500;
+  --fw-bold: 700;
+
+  /* font family */
+  --ff-accent: 'Fraunces', serif;
+  --ff-base: 'Montserrat', sans-serif;
+}
+
+/* css reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* general styling */
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem;
+  color: var(--clr-grayish-blue);
+  background-color: var(--clr-cream);
+
+  /* centering the whole card */
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  padding: 1rem;
+}
+
+/* utilities */
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* button */
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.75em 1.5em;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: var(--clr-dark-cyan);
+  color: var(--clr-white);
+  font-weight: var(--fw-bold);
+  font-size: 0.925rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url(images/icon-cart.svg);
+  width: 0.938rem;
+  height: 1rem;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-dark-cyan-hover);
+}
+
+/* product styles */
+
+.product {
+  --content-padding: 1.5rem; /* Adding variable padding for product class*/
+  --content-spacing: 1rem; /*Adding variable spacing for product class*/
+
+  display: grid;
+  background-color: var(--clr-white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 36rem;
+}
+
+.product-content {
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+}
+
+.product-category {
+  font-size: 0.8125rem;
+  letter-spacing: 0.313rem;
+  text-transform: uppercase;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--clr-dark-blue);
+  line-height: 1;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-family: var(--ff-accent);
+  color: var(--clr-dark-cyan);
+}
+
+/* responsive styles */
+@media (min-width: 36rem) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
